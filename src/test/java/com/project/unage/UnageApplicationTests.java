@@ -1,4 +1,4 @@
-package project.unage;
+package com.project.unage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
