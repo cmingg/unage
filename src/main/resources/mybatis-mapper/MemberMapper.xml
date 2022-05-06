@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.unage.repository.MemberMapper">
+
+    <select id="findProductById" resultType="Member">
+        SELECT prod_id
+             , prod_name
+             , prod_price
+        FROM products
+        WHERE prod_id = #{prodId}
+    </select>
+
+    <select id="findAll" resultType="Member">
+        SELECT prod_id
+             , prod_name
+             , prod_price
+        FROM products
+    </select>
+
+    <insert id="save" parameterType="Member">
+        INSERT INTO products (prod_id, prod_name, prod_price)
+        VALUES (prod_id.NEXTVAL , #{prodName}, #{prodPrice})
+    </insert>
+
+</mapper>

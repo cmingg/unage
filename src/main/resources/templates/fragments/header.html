@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<div th:fragment="header">
-    header 영역
-    <a th:href="login">로그인</a>
-</div>
+<header th:fragment="header">
+    <div style="background-color: lightcoral">
+        header 영역
+
+        <a th:href="@{/member/login}">LOGIN</a>
+        <a th:href="@{/member/join}">REGISTER</a>
+
+    </div>
+</header>
 
 </html>

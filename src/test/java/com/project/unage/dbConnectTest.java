@@ -1,11 +1,11 @@
-package com.project.unage.db;
+package com.project.unage;
 
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DbConnectTest {
+public class dbConnectTest {
 
     private static final String Driver = "oracle.jdbc.OracleDriver";
     private static final String Url = "jdbc:oracle:thin:@localhost:1521/xe";

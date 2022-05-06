@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:replace="fragments/header :: header"/>
+
+    <h1>LOGIN</h1>
+
+    <form th:action="@{/member/login}" method="post">
+        <div class="login_id">
+            <h4>ID</h4>
+            <input type="text" th:name="userId">
+        </div>
+        <div class="login_pw">
+            <h4>PASSWORD</h4>
+            <input type="password" th:name="pwd">
+        </div>
+        <div class="submit">
+            <input type="submit" value="LOGIN">
+            <input type="button" value="REGISTER">
+        </div>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    </form>
+
+    Forgotten ID? <br>
+    Forgotten password?
+
+<footer th:replace="fragments/footer :: footer"/>
+</html>
