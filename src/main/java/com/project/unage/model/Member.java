@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Member {
+public class Member implements Serializable {
 
-    private int userId_seq;
+
     private String userId;
     private String userName;
     private String password;
@@ -19,6 +21,4 @@ public class Member {
     private int auth;
     private String address;
 
-    public Member toEntity() {
-    }
 }

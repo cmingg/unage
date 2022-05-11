@@ -2,16 +2,16 @@ package com.project.unage.controller;
 
 import com.project.unage.model.Member;
 import com.project.unage.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/member")
 public class JoinController {
 
-    private MemberService memberService;
+    @Autowired
+    private MemberService Service;
 
     @GetMapping("/join")
     public String joinForm() {
@@ -19,9 +19,26 @@ public class JoinController {
     }
 
     @PostMapping("/join")
-    public String join(Member member) {
-        memberService.addMember(member);
-
+    public String addMember(Member member) {
+        Service.addMember(member);
         return "redirect:/";
     }
+
+    @ResponseBody
+    @GetMapping("/idCheck")
+    public int idCheck(String userId){
+        return Service.idCheck(userId);
+    }
+//
+//    @ResponseBody
+//    @GetMapping Mapping("/idCheck")
+//    public int emailCheck(String email){
+//        return Service.emailCheck(email);
+//    }
+////
+//    @ResponseBody
+//    @PostMapping("/idCheck")
+//    public int phoneCheck(String phone){
+//        return Service.phoneCheck(phone);
+//    }
 }

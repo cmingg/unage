@@ -8,19 +8,15 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface MemberMapper {
+public interface MemberRepository {
 
     Member findById(String userId);
-    List<Member> findAll();
-    void save(Member member);
-
-//    public void addMember(MemberDto dto);
+    public void addMember(Member member);
+    public int idCheck(String id);
+    public int emailCheck(String email);
+    public int phoneCheck(String phone);
 
 //    public MemberDto getMember(String id);
-//
-//    public boolean idCheck(String id);
-//
-//    public boolean emailCheck(String email);
 //
 //    public boolean login(MemberDto dto);
 //

@@ -3,26 +3,62 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.project.unage.repository.MemberMapper">
+<mapper namespace="com.project.unage.repository.MemberRepository">
 
-    <select id="findProductById" resultType="Member">
-        SELECT prod_id
-             , prod_name
-             , prod_price
-        FROM products
-        WHERE prod_id = #{prodId}
+    <select id="findById" parameterType="Member">
+        SELECT *
+        FROM MEMBER
+        WHERE USERID = #{userId}
     </select>
 
-    <select id="findAll" resultType="Member">
-        SELECT prod_id
-             , prod_name
-             , prod_price
-        FROM products
-    </select>
-
-    <insert id="save" parameterType="Member">
-        INSERT INTO products (prod_id, prod_name, prod_price)
-        VALUES (prod_id.NEXTVAL , #{prodName}, #{prodPrice})
+    <insert id="addMember" parameterType="Member">
+        INSERT INTO MEMBER (USERID, USERNAME, PASSWORD, PHONE, EMAIL, CREATE_DATE, AUTH, ADDRESS)
+        VALUES (#{userId}, #{userName}, #{password}, #{phone}, #{email}, SYSDATE, 0, #{address})
     </insert>
 
+    <select resultType="Integer" id="idCheck">
+        SELECT COUNT(*)
+        FROM MEMBER
+        WHERE USERID = #{userId}
+    </select>
+
+    <select resultType="Integer" id="emailCheck">
+        SELECT COUNT(*)
+        FROM MEMBER
+        WHERE EMAIL = #{email}
+    </select>
+
+    <select resultType="Integer" id="phoneCheck">
+        SELECT COUNT(*)
+        FROM MEMBER
+        WHERE PHONE = #{phone}
+    </select>
+
+
+    <select resultType="boolean" parameterType="Member" id="login">
+        SELECT COUNT(*)
+        FROM MEMBER
+        WHERE USERID = #{userId}
+          AND PASSWORD = #{password}
+    </select>
+
+    <select resultType="String" parameterType="Member" id="findId">
+        SELECT USERID
+        FROM MEMBER
+        WHERE USERNAME = #{userName}
+          AND EMAIL = #{email}
+    </select>
+
+    <select resultType="String" parameterType="Member" id="findPw">
+        SELECT USERID
+        FROM MEMBER
+        WHERE USERID = #{userId}
+          AND EMAIL = #{email}
+    </select>
+
+    <select parameterType="Member" id="updatePw">
+        UPDATE MEMBER
+        SET PASSWORD = #{password}
+        WHERE USERID = #{userId}
+    </select>
 </mapper>

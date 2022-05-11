@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unage</title>
+</head>
+<body>
 <header th:replace="fragments/header :: header"/>
 
-    <h1>LOGIN</h1>
+<h1>LOGIN</h1>
 
-    <form th:action="@{/member/login}" method="post">
-        <div class="login_id">
-            <h4>ID</h4>
-            <input type="text" th:name="userId">
-        </div>
-        <div class="login_pw">
-            <h4>PASSWORD</h4>
-            <input type="password" th:name="pwd">
-        </div>
-        <div class="submit">
-            <input type="submit" value="LOGIN">
-            <input type="button" value="REGISTER">
-        </div>
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-    </form>
+<form th:action="@{/member/login}" method="post" name="loginForm">
+    <div class="login_id">
+        <label for="userId">ID</label>
+        <input type="text" id="userId" name="userId">
+    </div>
+    <div class="login_pw">
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" name="password">
+    </div>
+    <div class="submit">
+        <input type="button" value="LOGIN" onclick="checkForm()">
+        <input type="button" value="REGISTER" th:onclick="|location.href='@{/member/join}'|">
+    </div>
 
-    Forgotten ID? <br>
-    Forgotten password?
+</form>
+
+<a th:href="@{/member/findId}">Forgotten ID? <br></a>
+<a th:href="@{/member/findPassword}">Forgotten password?</a>
 
 <footer th:replace="fragments/footer :: footer"/>
+</body>
+<script th:inline="javascript">
+    function checkForm() {
+        var form = document.loginForm;
+        if (form.userId.value == "") {
+            alert("아이디를 입력해주세요.");
+            form.userId.focus();
+            return false;
+        } else if (form.password.value == "") {
+            alert("비밀번호를 입력해주세요.");
+            form.password.focus();
+            return false;
+        }
+        form.submit();
+    }
+
+    function joinForm() {
+
+    }
+</script>
 </html>
