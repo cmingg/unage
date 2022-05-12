@@ -16,7 +16,7 @@
         VALUES (#{userId}, #{userName}, #{password}, #{phone}, #{email}, SYSDATE, 0, #{address})
     </insert>
 
-    <select resultType="Integer" id="idCheck">
+    <select resultType="Integer" id="idCheck" parameterType="String">
         SELECT COUNT(*)
         FROM MEMBER
         WHERE USERID = #{userId}
@@ -33,7 +33,6 @@
         FROM MEMBER
         WHERE PHONE = #{phone}
     </select>
-
 
     <select resultType="boolean" parameterType="Member" id="login">
         SELECT COUNT(*)

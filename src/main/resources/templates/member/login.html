@@ -6,7 +6,7 @@
     <title>unage</title>
 </head>
 <body>
-<header th:replace="fragments/header :: header"/>
+<header th:replace="fragments/header :: header"></header>
 
 <h1>LOGIN</h1>
 
@@ -29,7 +29,7 @@
 <a th:href="@{/member/findId}">Forgotten ID? <br></a>
 <a th:href="@{/member/findPassword}">Forgotten password?</a>
 
-<footer th:replace="fragments/footer :: footer"/>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 <script th:inline="javascript">
     function checkForm() {

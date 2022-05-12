@@ -11,10 +11,14 @@ import java.util.List;
 public interface MemberRepository {
 
     Member findById(String userId);
-    public void addMember(Member member);
-    public int idCheck(String id);
-    public int emailCheck(String email);
-    public int phoneCheck(String phone);
+
+    void addMember(Member member);
+
+    int idCheck(String id);
+
+    int emailCheck(String email);
+
+    int phoneCheck(String phone);
 
 //    public MemberDto getMember(String id);
 //
