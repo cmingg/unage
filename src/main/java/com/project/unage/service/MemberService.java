@@ -6,11 +6,10 @@ public interface MemberService {
 
     public void addMember(Member member);
 
-    public int idCheck(String id);
+    public boolean idCheck(String id);
 
-    public int emailCheck(String email);
+    public boolean emailCheck(String email);
 
-    public int phoneCheck(String phone);
 
 }
 

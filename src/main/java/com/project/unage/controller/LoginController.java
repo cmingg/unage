@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
 
-
-
     @GetMapping("/member/login")
     public String loginForm() {
         return "member/login";
@@ -37,13 +35,13 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @GetMapping("/denied")
-    public String goLogin() {
-        return "member/login";
-    }
-
-    @GetMapping("/admin")
-    public String admin() {
-        return "member/admin";
-    }
+//    @GetMapping("/denied")
+//    public String goLogin() {
+//        return "member/login";
+//    }
+//
+//    @GetMapping("/admin")
+//    public String admin() {
+//        return "member/admin";
+//    }
 }

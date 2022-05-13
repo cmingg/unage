@@ -10,25 +10,23 @@ import java.util.List;
 @Repository
 public interface MemberRepository {
 
-    Member findById(String userId);
+    public Member findById(String userId);
 
-    void addMember(Member member);
+    public void addMember(Member member);
 
-    int idCheck(String id);
+    public boolean idCheck(String id);
 
-    int emailCheck(String email);
-
-    int phoneCheck(String phone);
+    public boolean emailCheck(String email);
 
 //    public MemberDto getMember(String id);
 //
-//    public boolean login(MemberDto dto);
+//    public boolean login(Member dto);
 //
-//    public String findId(MemberDto dto);
+//    public String findId(Member dto);
 //
-//    public String findPw(MemberDto dto);
+//    public String findPw(Member dto);
 //
-//    public void updatePw(MemberDto dto);
+//    public void updatePw(Member dto);
 
 }
 

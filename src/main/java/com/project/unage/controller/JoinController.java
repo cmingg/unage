@@ -16,7 +16,6 @@ public class JoinController {
     @Autowired
     private MemberService Service;
 
-
     @GetMapping("/join")
     public String joinForm() {
         return "member/join";
@@ -24,23 +23,22 @@ public class JoinController {
 
     @PostMapping("/join")
     public String addMember(Member member) {
+        log.info("회원가입 성공!");
         Service.addMember(member);
-        return "redirect:/";
+        return "redirect:/member/login";
     }
 
     @ResponseBody
     @GetMapping("/idCheck")
-    public int idCheck(@RequestParam("userId") String userId){
-        log.info("아이디 중복확인");
+    public boolean idCheck(@RequestParam("id") String userId){
         log.info("전달받은 ID : " + userId);
-        int cnt = Service.idCheck(userId);
-        log.info("확인 결과 : " + cnt);
-        return cnt;
+        return Service.idCheck(userId);
     }
-//
-//    @ResponseBody
-//    @PostMapping("/idCheck")
-//    public int phoneCheck(String phone){
-//        return Service.phoneCheck(phone);
-//    }
+
+    @ResponseBody
+    @GetMapping("/emailCheck")
+    public boolean emailCheck(@RequestParam("email") String email){
+        log.info("전달받은 email : " + email);
+        return Service.emailCheck(email);
+    }
 }

@@ -11,10 +11,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Member implements Serializable {
 
-
     private String userId;
     private String userName;
-    private String password;
+    private String pwd;
     private String phone;
     private String email;
     private String create_date;

@@ -17,18 +17,13 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public int idCheck(String id) {
+    public boolean idCheck(String id) {
         return memberRepository.idCheck(id);
     }
 
     @Override
-    public int emailCheck(String email) {
+    public boolean emailCheck(String email) {
         return memberRepository.emailCheck(email);
-    }
-
-    @Override
-    public int phoneCheck(String phone) {
-        return memberRepository.phoneCheck(phone);
     }
 
 }
