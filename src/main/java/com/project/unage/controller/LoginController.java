@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
@@ -21,6 +22,11 @@ public class LoginController {
 
     @GetMapping("/member/findId")
         public String findIdForm() {
+        return "/member/findId";
+    }
+
+    @PostMapping("/member/findId")
+    public String findId(@RequestParam("email") String email) {
         return "/member/findId";
     }
 
