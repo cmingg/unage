@@ -21,12 +21,17 @@
     </div>
 </form>
 
-<a data-toggle="modal" data-target="#IdModal" role="button">
-    Forgotten ID?
-</a><br>
-<a th:href="@{/member/findPassword}">Forgotten password?</a>
+<a data-toggle="modal" data-target="#IdModal" th:href="@{/member/findId}" role="button">Forgotten ID?</a><br>
+<a data-toggle="modal" data-target="#PwdModal" th:href="@{/member/findPassword}" role="button">Forgotten password?</a><br>
 
 <div id="IdModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<div id="PwdModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
         </div>
@@ -50,7 +55,5 @@
         }
         form.submit();
     }
-
-    $(".modal-content").load("/member/findId");
 </script>
 </html>

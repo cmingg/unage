@@ -2,44 +2,39 @@ package com.project.unage.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Controller
+@RequestMapping("/member")
 public class LoginController {
 
-    @GetMapping("/member/login")
+    @GetMapping("/login")
     public String loginForm() {
         return "member/login";
     }
 
-    @GetMapping("/member/logout")
+    @GetMapping("/logout")
     public String logout() {
         return "/";
     }
 
-    @GetMapping("/member/findId")
+    @GetMapping("/findId")
         public String findIdForm() {
         return "/member/findId";
     }
 
-    @PostMapping("/member/findId")
-    public String findId(@RequestParam("email") String email) {
-        return "/member/findId";
-    }
-
-    @GetMapping("/member/findPassword")
-    public String findPasswordForm() {
-        return "/member/findPassword";
-    }
-
-
-    @PostMapping("/member/login")
-    public String login() {
-        return "redirect:/";
-    }
+//
+//    @GetMapping("/member/findPassword")
+//    public String findPasswordForm() {
+//        return "/member/findPassword";
+//    }
+//
+//
+//    @PostMapping("/member/login")
+//    public String login() {
+//        return "redirect:/";
+//    }
 
 //    @GetMapping("/denied")
 //    public String goLogin() {
