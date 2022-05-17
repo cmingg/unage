@@ -26,4 +26,9 @@ public class MemberServiceImpl implements MemberService{
         return memberRepository.emailCheck(email);
     }
 
+    @Override
+    public String findId(Member member) {
+       return memberRepository.findId(member);
+    }
+
 }

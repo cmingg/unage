@@ -18,6 +18,8 @@ public interface MemberRepository {
 
     public boolean emailCheck(String email);
 
+    public String findId(Member member);
+
 //    public MemberDto getMember(String id);
 //
 //    public boolean login(Member dto);

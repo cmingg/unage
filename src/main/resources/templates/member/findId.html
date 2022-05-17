@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,19 +12,38 @@
 </div>
 <div class="modal-body">
     <div class="form-group">
-    <label for="method">METHOD</label>
-    <input type="radio" id="method" name="method" checked>이메일
+        <label for="method">METHOD</label>
+        <input type="radio" id="method" name="method" checked>이메일
     </div>
-    <div class="form-group">
-        <label for="userName">NAME</label>
-        <input type="text" id="userName" name="userName">
-    </div>
-    <div class="form-group">
-        <label for="email">E-MAIL</label>
-        <input type="text" id="email" name="email">
-    </div>
-    <button type="submit">CONFIRM</button><br>
-    <button type="button" data-dismiss="modal">CLOSE</button>
+    <form method="post" th:action="@{/member/findId}" id="findIdForm">
+        <div class="form-group">
+            <label for="userName">NAME</label>
+            <input type="text" id="userName" name="userName">
+            <div class="error-box"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">E-MAIL</label>
+            <input type="text" id="email" name="email">
+            <div class="error-box"></div>
+        </div>
+        <input type="button" id="btn-findId" value="CONFIRM"/>
+        <button type="button" data-dismiss="modal">CLOSE</button>
+    </form>
 </div>
 </body>
+<script th:inline="javascript">
+    $("#btn-findId").click(function () {
+        if ($("#userName").val() === "") {
+            alert("아이디를 입력해주세요.");
+            $("#userName").focus();
+            return false;
+        }
+        if ($("#email").val() === "") {
+            alert("이메일을 입력해주세요.");
+            $("#email").focus();
+            return false;
+        }
+        $("#findIdForm").submit();
+    });
+</script>
 </html>

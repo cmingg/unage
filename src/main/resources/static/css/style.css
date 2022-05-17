@@ -1,0 +1,23 @@
+html, body {
+    height: 100%;
+}
+
+header {
+    height: 80px;
+    background-color: lightcoral;
+    display: flex;
+}
+
+.container {
+    position: relative;
+    min-height: 70%;
+    padding-bottom: 114px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: lightcoral;
+
+}

@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head">
-    <link rel="stylesheet" href="/static/css/progress.css">
+<head>
+    <meta charset="utf-8">
+    <title>unage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <link rel="stylesheet" href="../../css/progress.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-<header th:replace="fragments/header :: header"></header>
-<h2 class="text-center font-weight-bold pt-4 pb-5"><strong>JOIN US</strong></h2>
-
-<!-- progress -->
-<div class="steps-form">
-    <div class="steps-row setup-panel">
-        <div class="steps-step">
-            <a href="#step-1" type="button" class="btn btn-indigo btn-circle" id="btn1">1</a>
-            <p>Step 1</p>
-        </div>
-        <div class="steps-step">
-            <a href="#step-2" type="button" class="btn btn-default btn-circle" id="btn2" >2</a>
-            <p>Step 2</p>
+<div class="container">
+    <header th:replace="fragments/header :: header"></header>
+    <h2 class="text-center font-weight-bold pt-4 pb-5"><strong>JOIN US</strong></h2>
+    <!-- progress -->
+    <div class="steps-form">
+        <div class="steps-row setup-panel">
+            <div class="steps-step">
+                <a href="#step-1" type="button" class="btn btn-indigo btn-circle" id="btn1">1</a>
+                <p>Step 1</p>
+            </div>
+            <div class="steps-step">
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" id="btn2">2</a>
+                <p>Step 2</p>
+            </div>
         </div>
     </div>
-</div>
 
-<form method="post" th:action="@{/member/join}" id="loginForm">
-
-    <!-- First Step -->
-    <div class="setup-content" id="step-1">
-        <div class="col-md-12">
-            <h3 class="font-weight-bold pl-0 my-4"><strong>PRIVACY POLICY & TERMS OF USE</strong></h3>
-            <div class="form-group">
+    <div class="check-form">
+        <!-- First Step -->
+        <div class="setup-content" id="step-1">
+            <div class="col-md-12">
+                <h4 class="font-weight-bold pl-0 my-4"><strong>PRIVACY POLICY & TERMS OF USE</strong></h4>
+                <div class="form-group">
             <textarea readonly="readonly" rows="15" cols="120">
-                제1조(목적)
+제1조(목적)
 이 약관은 언에이지(전자상거래 사업자)가 운영하는 언에이지 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
 ※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」
 
@@ -246,14 +253,15 @@
 
 부 칙(시행일) 이 약관은 2015년 5월 24일부터 시행합니다.
             </textarea>
-            </div>
-            <div class="form-group">
-                이용약관에 동의하십니까? <input type="checkbox">동의함
-            </div>
+                </div>
+                <div class="form-group">
+                    이용약관에 동의하십니까? <img src="../../images/ico_required.gif" alt="별">
+                    <input type="checkbox" id="c1">동의함
+                </div>
 
-            <div class="form-group">
+                <div class="form-group">
                 <textarea readonly="readonly" rows="15" cols="120">
-                    ■ 수집하는 개인정보 항목
+■ 수집하는 개인정보 항목
 회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
 ο 수집항목 : 이름 , 생년월일 , 성별 , 로그인ID , 비밀번호 , 비밀번호 질문과 답변 , 자택 전화번호 , 자택 주소 , 휴대전화번호 , 이메일 , 직업 , 회사명 , 부서 , 직책 , 회사전화번호 , 취미 , 결혼여부 , 기념일 , 법정대리인정보 , 서비스 이용기록 , 접속 로그 , 접속 IP 정보 , 결제기록
 ο 개인정보 수집방법 : 홈페이지(회원가입) , 서면양식
@@ -271,69 +279,132 @@
 
 회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.
                 </textarea>
+                </div>
+                <div class="form-group">
+                    개인정보 수집 및 이용에 동의하십니까? <img src="../../images/ico_required.gif" alt="별">
+                    <input type="checkbox" id="c2">동의함
+                </div>
+                <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">NEXT</button>
             </div>
-            <div class="form-group">
-                개인정보 수집 및 이용에 동의하십니까? <input type="checkbox">동의함
-            </div>
-            <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">Next</button>
         </div>
     </div>
-
     <!-- Second Step -->
     <div class="setup-content" id="step-2">
-        <h3 class="font-weight-bold pl-0 my-4"><strong>BASIC INFO</strong></h3>
-        <div class="form-group">
-            <label for="userName">이름</label>
-            <input type="text" id="userName" name="userName">
-            <span class="error_box"></span>
-        </div>
-        <div class="form-group">
-            <label for="userId">아이디</label>
-            <input type="text" id="userId" name="userId" maxlength="16">
-            <span class="error_box"></span>
-        </div>
-        <div class="form-group">
-            <label for="pwd">비밀번호</label>
-            <input type="password" id="pwd" name="pwd" maxlength="16">
-            <span class="error_box"></span>
-        </div>
-        <div class="form-group">
-            <label for="checkPwd">비밀번호 확인</label>
-            <input type="password" id="checkPwd" name="checkPwd">
-            <span class="error_box"></span>
-        </div>
-        <div class="form-group">
-            <label for="zonecode">주소</label>
-            <input type="text" id="zonecode" placeholder="우편번호" name="address">
-            <input type="button" onclick="kakaopost()" value="우편번호 찾기" readonly><br>
-            <input type="text" id="address" name="address" placeholder="주소">
-            <input type="text" id="detailAddress" placeholder="상세주소" name="address">
-            <span class="error_box"></span>
-        </div>
-        <div class="form-group">
-            <label for="phone">휴대전화</label>
-            <input type="text" id="phone" name="phone" maxlength="13" placeholder="'-' 제외 숫자만 입력해주세요.">
-            <span class="error_box"></span>
-        </div>
-        <div class="form-group">
-            <label for="email">이메일</label>
-            <input type="email" id="email" name="email" placeholder="@까지 정확하게 입력해주세요." maxlength="50">
-            <span class="error_box"></span>
-        </div>
-        <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">Previous</button>
-        <input type="button" name="btnJoin" id="btnJoin" value="REGISTER"/>
+        <form method="post" th:action="@{/member/join}" id="loginForm">
+            <h4 class="font-weight-bold pl-0 my-4"><strong>BASIC INFO</strong></h4>
+            <div class="form-group">
+                <label for="userName">이름</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="text" id="userName" name="userName">
+                <span class="error_box"></span>
+            </div>
+            <div class="form-group">
+                <label for="userId">아이디</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="text" id="userId" name="userId" maxlength="16">
+                <span class="error_box"></span>
+            </div>
+            <div class="form-group">
+                <label for="pwd">비밀번호</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="password" id="pwd" name="pwd" maxlength="16">
+                <span class="error_box"></span>
+            </div>
+            <div class="form-group">
+                <label for="checkPwd">비밀번호 확인</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="password" id="checkPwd" name="checkPwd">
+                <span class="error_box"></span>
+            </div>
+            <div class="form-group">
+                <label for="zonecode">주소</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="text" id="zonecode" placeholder="우편번호" name="address">
+                <input type="button" onclick="kakaopost()" value="우편번호 찾기" readonly><br>
+                <input type="text" id="address" name="address" placeholder="주소">
+                <input type="text" id="detailAddress" placeholder="상세주소" name="address">
+                <span class="error_box"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">휴대전화</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="text" id="phone" name="phone" maxlength="13" placeholder="'-' 제외 숫자만 입력해주세요.">
+                <span class="error_box"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <img src="../../images/ico_required.gif" alt="별">
+                <input type="email" id="email" name="email" placeholder="@까지 정확하게 입력해주세요." maxlength="50">
+                <span class="error_box"></span>
+            </div>
+            <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">PREVIEW</button>
+            <input type="button" name="btnJoin" id="btnJoin" value="REGISTER"/>
+        </form>
     </div>
-</form>
-<footer th:replace="fragments/footer :: footer"></footer>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</div>
 </body>
 
 <script th:inline="javascript">
 
-    let error = document.querySelectorAll(".error_box");
-    let idStatus = false;
-    let emailStatus = false;
+    let error = document.querySelectorAll(".error_box"),
+        idStatus = false,
+        emailStatus = false;
 
     $(document).ready(function () {
+
+        var steps = $('div.setup-panel div a'),
+            contents = $('.setup-content'),
+            nextBtn = $('.nextBtn'),
+            prevBtn = $('.prevBtn');
+
+        contents.hide();
+
+        steps.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                steps.removeClass('btn-indigo').addClass('btn-default');
+                $item.addClass('btn-indigo');
+                contents.hide();
+                $target.show();
+                $("#btn1").css("background-color", "orange");
+            }
+
+        });
+
+        prevBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),    // 가장 가까운 .setup-content 가져온다
+                curStepBtn = curStep.attr("id"),    // step-1
+                prevStepSteps = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+            $("#btn1").css("background-color", "orange");
+            $("#btn2").css("background-color", "");
+            prevStepSteps.removeAttr('disabled').trigger('click');
+        });
+
+        nextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                isValid = true;
+
+            if (document.getElementById("c1").checked === false ||
+                document.getElementById("c2").checked === false) {
+                alert("필수 약관 동의를 체크해주세요");
+                isValid = false;
+            }
+
+            if (isValid) {
+                $("#btn2").css("background-color", "orange");
+                nextStepWizard.removeAttr('disabled').trigger('click');
+            }
+        });
+
+        $('div.setup-panel div a.btn-indigo').trigger('click');
+
         $('#userName').blur(function () {
             checkName();
         });
@@ -445,8 +516,8 @@
     }
 
     function comparePwd() {
-        var pwd1 = $("#pwd").val();
-        var pwd2 = $("#checkPwd").val();
+        var pwd1 = $("#pwd").val(),
+            pwd2 = $("#checkPwd").val();
 
         if (pwd2 === "") {
             error[3].innerHTML = "필수 정보입니다.";
@@ -556,11 +627,11 @@
 
     $("#btnJoin").click(function () {
 
-        let nameStatus = checkName();
-        let pwdStatus = checkPwd();
-        let checkPwdStatus = comparePwd();
-        let addressStatus = checkAddress();
-        let phoneStatus = checkPhone();
+        let nameStatus = checkName(),
+            pwdStatus = checkPwd(),
+            checkPwdStatus = comparePwd(),
+            addressStatus = checkAddress(),
+            phoneStatus = checkPhone();
         checkId();
         checkEmail();
 
