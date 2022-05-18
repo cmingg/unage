@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public String findId(Member member) {
-       return memberRepository.findId(member);
+        return memberRepository.findId(member);
     }
 
 }

@@ -53,17 +53,7 @@
 
 <script th:inline="javascript">
     function checkForm() {
-        var form = document.loginForm;
-        if (form.userId.value === "") {
-            alert("아이디를 입력해주세요.");
-            form.userId.focus();
-            return false;
-        } else if (form.password.value === "") {
-            alert("비밀번호를 입력해주세요.");
-            form.password.focus();
-            return false;
-        }
-        form.submit();
+
     }
 </script>
 </html>

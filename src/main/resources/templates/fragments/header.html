@@ -2,12 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <header th:fragment="header">
-    <div>
-        header 영역
-
-        <a th:href="@{/member/login}">LOGIN</a>
-        <a th:href="@{/member/join}">REGISTER</a>
-
+    <div class="wrapper">
+        <div class="title"><a th:href="@{/}">UNAGE</a></div>
+        <ul class="lists">
+            <li><a href="">SHOP</a></li>
+            <li><a href="">ABOUT</a></li>
+            <li><a href="">QnA</a></li>
+        </ul>
+        <div class="log"><a th:href="@{/member/login}">LOGIN</a></div>
     </div>
 </header>
 

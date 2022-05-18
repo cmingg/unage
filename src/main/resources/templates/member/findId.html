@@ -11,39 +11,71 @@
     <p>인증된 이메일만 정보 찾기가 가능합니다 :)</p>
 </div>
 <div class="modal-body">
-    <div class="form-group">
-        <label for="method">METHOD</label>
-        <input type="radio" id="method" name="method" checked>이메일
-    </div>
     <form method="post" th:action="@{/member/findId}" id="findIdForm">
         <div class="form-group">
             <label for="userName">NAME</label>
             <input type="text" id="userName" name="userName">
-            <div class="error-box"></div>
         </div>
         <div class="form-group">
             <label for="email">E-MAIL</label>
             <input type="text" id="email" name="email">
-            <div class="error-box"></div>
         </div>
         <input type="button" id="btn-findId" value="CONFIRM"/>
         <button type="button" data-dismiss="modal">CLOSE</button>
     </form>
 </div>
+
+<div class="findId">
+<h4> 당신의 id는 <span id="data"></span> 입니다.</h4>
+</div>
+
+<div class="notFindId">
+    <h4>존재하지 않는 회원입니다 :(</h4>
+    <input type="button" value="REGISTER" th:onclick="|location.href='@{/member/join}'|">
+</div>
 </body>
 <script th:inline="javascript">
+    $(document).ready(function () {
+        $(".findId").hide();
+        $(".notFindId").hide();
+    });
+
     $("#btn-findId").click(function () {
-        if ($("#userName").val() === "") {
+        let userName = $("#userName").val();
+        let email = $("#email").val();
+
+        if (userName === "") {
             alert("아이디를 입력해주세요.");
             $("#userName").focus();
             return false;
         }
-        if ($("#email").val() === "") {
+        if (email === "") {
             alert("이메일을 입력해주세요.");
             $("#email").focus();
             return false;
         }
-        $("#findIdForm").submit();
+
+        $.ajax({
+            url: "/member/findId",
+            type: "POST",
+            data: {userName: userName, email : email},
+            success: function (data) {
+                if (data === "") {
+                    $(".notFindId").show();
+                    $(".modal-body").hide();
+                    $(".findId").hide();
+                } else {
+                    $(".findId").show();
+                    $("#data").text(data);
+                    $(".modal-body").hide();
+                    $(".notFindId").hide();
+                }
+            }, error: function () {
+                console.log("실패");
+            }
+        });
     });
+
+
 </script>
 </html>

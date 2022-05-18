@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <title>unage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--bootstrap3-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--kakao 주소-->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="../../css/progress.css">
     <link rel="stylesheet" href="../../css/style.css">
@@ -281,7 +283,7 @@
                 </textarea>
                 </div>
                 <div class="form-group">
-                    개인정보 수집 및 이용에 동의하십니까? <img src="../../images/ico_required.gif" alt="별">
+                    개인정보 수집 및 이용에 동의하십니까? <img src="../../images/ico_required.gif">
                     <input type="checkbox" id="c2">동의함
                 </div>
                 <button class="btn btn-indigo btn-rounded nextBtn float-right" type="button">NEXT</button>
@@ -290,56 +292,60 @@
     </div>
     <!-- Second Step -->
     <div class="setup-content" id="step-2">
-        <form method="post" th:action="@{/member/join}" id="loginForm">
-            <h4 class="font-weight-bold pl-0 my-4"><strong>BASIC INFO</strong></h4>
-            <div class="form-group">
-                <label for="userName">이름</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="text" id="userName" name="userName">
-                <span class="error_box"></span>
-            </div>
-            <div class="form-group">
-                <label for="userId">아이디</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="text" id="userId" name="userId" maxlength="16">
-                <span class="error_box"></span>
-            </div>
-            <div class="form-group">
-                <label for="pwd">비밀번호</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="password" id="pwd" name="pwd" maxlength="16">
-                <span class="error_box"></span>
-            </div>
-            <div class="form-group">
-                <label for="checkPwd">비밀번호 확인</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="password" id="checkPwd" name="checkPwd">
-                <span class="error_box"></span>
-            </div>
-            <div class="form-group">
-                <label for="zonecode">주소</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="text" id="zonecode" placeholder="우편번호" name="address">
-                <input type="button" onclick="kakaopost()" value="우편번호 찾기" readonly><br>
-                <input type="text" id="address" name="address" placeholder="주소">
-                <input type="text" id="detailAddress" placeholder="상세주소" name="address">
-                <span class="error_box"></span>
-            </div>
-            <div class="form-group">
-                <label for="phone">휴대전화</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="text" id="phone" name="phone" maxlength="13" placeholder="'-' 제외 숫자만 입력해주세요.">
-                <span class="error_box"></span>
-            </div>
-            <div class="form-group">
-                <label for="email">이메일</label>
-                <img src="../../images/ico_required.gif" alt="별">
-                <input type="email" id="email" name="email" placeholder="@까지 정확하게 입력해주세요." maxlength="50">
-                <span class="error_box"></span>
-            </div>
-            <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">PREVIEW</button>
-            <input type="button" name="btnJoin" id="btnJoin" value="REGISTER"/>
-        </form>
+        <div class="col-md-5">
+            <form method="post" th:action="@{/member/join}" id="loginForm">
+                <h4 class="font-weight-bold pl-0 my-4"><strong>BASIC INFO</strong></h4>
+                <div class="form-group">
+                    <label for="userName">이름</label>
+                    <img src="../../images/ico_required.gif">
+                    <input class="form-control" type="text" id="userName" name="userName">
+                    <span class="error_box"></span>
+                </div>
+                <div class="form-group">
+                    <label for="userId">아이디</label>
+                    <img src="../../images/ico_required.gif">
+                    <input class="form-control" type="text" id="userId" name="userId" maxlength="16">
+                    <span class="error_box"></span>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">비밀번호</label>
+                    <img src="../../images/ico_required.gif">
+                    <input class="form-control" type="password" id="pwd" name="pwd" maxlength="16">
+                    <span class="error_box"></span>
+                </div>
+                <div class="form-group">
+                    <label for="checkPwd">비밀번호 확인</label>
+                    <img src="../../images/ico_required.gif" alt="별">
+                    <input class="form-control" type="password" id="checkPwd" name="checkPwd">
+                    <span class="error_box"></span>
+                </div>
+                <div class="form-group">
+                    <label for="zonecode">주소</label>
+                    <img src="../../images/ico_required.gif" alt="별">
+                    <input class="form-control" type="text" id="zonecode" placeholder="우편번호" name="address">
+                    <input class="form-control" type="button" onclick="kakaopost()" value="우편번호 찾기" readonly><br>
+                    <input class="form-control" type="text" id="address" name="address" placeholder="주소">
+                    <input class="form-control" type="text" id="detailAddress" placeholder="상세주소" name="address">
+                    <span class="error_box"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">휴대전화</label>
+                    <img src="../../images/ico_required.gif" alt="별">
+                    <input class="form-control" type="text" id="phone" name="phone" maxlength="13"
+                           placeholder="'-' 제외 숫자만 입력해주세요.">
+                    <span class="error_box"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <img src="../../images/ico_required.gif" alt="별">
+                    <input class="form-control" type="email" id="email" name="email" placeholder="@까지 정확하게 입력해주세요."
+                           maxlength="50">
+                    <span class="error_box"></span>
+                </div>
+                <button class="btn btn-indigo btn-rounded prevBtn float-left" type="button">PREVIEW</button>
+                <input type="button" name="btnJoin" id="btnJoin" value="REGISTER"/>
+            </form>
+        </div>
     </div>
     <footer th:replace="fragments/footer :: footer"></footer>
 </div>
@@ -404,6 +410,14 @@
         });
 
         $('div.setup-panel div a.btn-indigo').trigger('click');
+
+        $("#btn2").click(function () {
+            $("#btn2").css("background-color", "orange");
+        });
+
+        $("#btn1").click(function () {
+            $("#btn2").css("background-color", "");
+        });
 
         $('#userName').blur(function () {
             checkName();

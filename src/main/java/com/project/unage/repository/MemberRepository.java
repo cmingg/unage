@@ -20,16 +20,6 @@ public interface MemberRepository {
 
     public String findId(Member member);
 
-//    public MemberDto getMember(String id);
-//
-//    public boolean login(Member dto);
-//
-//    public String findId(Member dto);
-//
-//    public String findPw(Member dto);
-//
-//    public void updatePw(Member dto);
-
 }
 
 
