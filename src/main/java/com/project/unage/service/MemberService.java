@@ -11,5 +11,7 @@ public interface MemberService {
     public boolean emailCheck(String email);
 
     public String findId(Member member);
+
+    public boolean login(Member member);
 }
 

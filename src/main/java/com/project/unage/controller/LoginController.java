@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-
 @Slf4j
 @Controller
 @RequestMapping("/member")
@@ -21,6 +19,19 @@ public class LoginController {
     @GetMapping("/login")
     public String loginForm() {
         return "member/login";
+    }
+
+    @PostMapping("/login")
+    public String login(Member member) {
+        log.info("id = {}", member.getUserId());
+        log.info("pwd = {}", member.getPwd());
+        boolean result = memberService.login(member);
+        log.info("result = {}", result);
+        if (!result) {
+            return "redirect:/member/login";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/logout")
@@ -38,9 +49,6 @@ public class LoginController {
     public String findId(Member member, Model model) {
         log.info("받은 userName = {}", member.getUserName());
         log.info("받은 email = {}", member.getEmail());
-        String id = memberService.findId(member);
-        log.info("id = {}", id);
-        model.addAttribute("userId", id);
         return memberService.findId(member);
     }
 

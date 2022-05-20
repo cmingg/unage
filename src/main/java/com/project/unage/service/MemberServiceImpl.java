@@ -31,4 +31,9 @@ public class MemberServiceImpl implements MemberService{
         return memberRepository.findId(member);
     }
 
+    @Override
+    public boolean login(Member member) {
+        return memberRepository.login(member);
+    }
+
 }

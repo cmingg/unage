@@ -5,12 +5,6 @@
 
 <mapper namespace="com.project.unage.repository.MemberRepository">
 
-    <select id="findById" parameterType="Member">
-        SELECT *
-        FROM MEMBER
-        WHERE USERID = #{userId}
-    </select>
-
     <insert id="addMember" parameterType="Member">
         INSERT INTO MEMBER (USERID, USERNAME, PASSWORD, PHONE, EMAIL, CREATE_DATE, AUTH, ADDRESS)
         VALUES (#{userId}, #{userName}, #{pwd}, #{phone}, #{email}, SYSDATE, 0, #{address})
@@ -28,12 +22,6 @@
         WHERE EMAIL = #{email}
     </select>
 
-    <select resultType="Integer" id="phoneCheck">
-        SELECT COUNT(*)
-        FROM MEMBER
-        WHERE PHONE = #{phone}
-    </select>
-
     <select resultType="boolean" parameterType="Member" id="login">
         SELECT COUNT(*)
         FROM MEMBER
@@ -48,16 +36,17 @@
           AND EMAIL = #{email}
     </select>
 
-    <select resultType="String" parameterType="Member" id="findPw">
+    <select resultType="boolean" parameterType="Member" id="findPwCheck">
         SELECT USERID
         FROM MEMBER
         WHERE USERID = #{userId}
           AND EMAIL = #{email}
     </select>
 
-    <select parameterType="Member" id="updatePw">
+    <select resultType="String" parameterType="Member" id="findPw">
         UPDATE MEMBER
         SET PASSWORD = #{pwd}
-        WHERE USERID = #{userId}
+        WHERE EMAIL = #{email}
+          AND USERID = #{userId}
     </select>
 </mapper>
