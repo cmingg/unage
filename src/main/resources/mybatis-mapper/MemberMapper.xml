@@ -43,10 +43,10 @@
           AND EMAIL = #{email}
     </select>
 
-    <select resultType="String" parameterType="Member" id="findPw">
-        UPDATE MEMBER
-        SET PASSWORD = #{pwd}
-        WHERE EMAIL = #{email}
-          AND USERID = #{userId}
-    </select>
+<!--    <select resultType="String" parameterType="Member" id="findPw">-->
+<!--        UPDATE MEMBER-->
+<!--        SET PASSWORD = #{pwd}-->
+<!--        WHERE EMAIL = #{email}-->
+<!--          AND USERID = #{userId}-->
+<!--    </select>-->
 </mapper>
