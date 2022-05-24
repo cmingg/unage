@@ -13,5 +13,7 @@ public interface MemberService {
     public String findId(Member member);
 
     public boolean login(Member member);
+
+    public String findPw(Member member);
 }
 

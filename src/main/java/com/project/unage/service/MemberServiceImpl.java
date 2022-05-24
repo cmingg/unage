@@ -2,17 +2,20 @@ package com.project.unage.service;
 
 import com.project.unage.model.Member;
 import com.project.unage.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class MemberServiceImpl implements MemberService{
 
-    @Autowired
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void addMember(Member member) {
+        member.setPwd(passwordEncoder.encode(member.getPwd()));
         memberRepository.addMember(member);
     }
 
@@ -35,5 +38,11 @@ public class MemberServiceImpl implements MemberService{
     public boolean login(Member member) {
         return memberRepository.login(member);
     }
+
+    @Override
+    public String findPw(Member member) {
+        return null;
+    }
+
 
 }

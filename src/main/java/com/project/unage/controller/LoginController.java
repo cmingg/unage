@@ -2,19 +2,18 @@ package com.project.unage.controller;
 
 import com.project.unage.model.Member;
 import com.project.unage.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/member")
 public class LoginController {
 
-    @Autowired
-    private MemberService memberService;
+    private final MemberService memberService;
 
     @GetMapping("/login")
     public String loginForm() {
@@ -46,16 +45,17 @@ public class LoginController {
 
     @ResponseBody
     @PostMapping("/findId")
-    public String findId(Member member, Model model) {
+    public String findId(Member member) {
         log.info("받은 userName = {}", member.getUserName());
         log.info("받은 email = {}", member.getEmail());
         return memberService.findId(member);
     }
 
-
-    @GetMapping("/findPassword")
-    public String findPasswordForm() {
-        return "/member/findPassword";
+    @ResponseBody
+    @PostMapping("/findPw")
+    public String findPw(Member member) {
+        log.info("받아온 email = {}", member.getEmail());
+        return memberService.findPw(member);
     }
 
 }

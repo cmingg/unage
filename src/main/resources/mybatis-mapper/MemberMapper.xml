@@ -10,43 +10,43 @@
         VALUES (#{userId}, #{userName}, #{pwd}, #{phone}, #{email}, SYSDATE, 0, #{address})
     </insert>
 
-    <select resultType="boolean" id="idCheck" parameterType="String">
+    <select id="idCheck" parameterType="String" resultType="boolean">
         SELECT COUNT(*)
         FROM MEMBER
         WHERE USERID = #{userId}
     </select>
 
-    <select resultType="boolean" id="emailCheck" parameterType="String">
+    <select id="emailCheck" parameterType="String" resultType="boolean">
         SELECT COUNT(*)
         FROM MEMBER
         WHERE EMAIL = #{email}
     </select>
 
-    <select resultType="boolean" parameterType="Member" id="login">
+    <select id="login" parameterType="Member" resultType="boolean">
         SELECT COUNT(*)
         FROM MEMBER
         WHERE USERID = #{userId}
           AND PASSWORD = #{pwd}
     </select>
 
-    <select resultType="String" parameterType="Member" id="findId">
+    <select id="findId" parameterType="Member" resultType="String">
         SELECT USERID
         FROM MEMBER
         WHERE USERNAME = #{userName}
           AND EMAIL = #{email}
     </select>
 
-    <select resultType="boolean" parameterType="Member" id="findPwCheck">
+    <select id="findPwCheck" parameterType="Member" resultType="boolean">
         SELECT USERID
         FROM MEMBER
         WHERE USERID = #{userId}
           AND EMAIL = #{email}
     </select>
 
-<!--    <select resultType="String" parameterType="Member" id="findPw">-->
-<!--        UPDATE MEMBER-->
-<!--        SET PASSWORD = #{pwd}-->
-<!--        WHERE EMAIL = #{email}-->
-<!--          AND USERID = #{userId}-->
-<!--    </select>-->
+    <select id="findPw" parameterType="Member" resultType="String">
+        UPDATE MEMBER
+        SET PASSWORD = #{pwd}
+        WHERE EMAIL = #{email}
+          AND USERID = #{userId}
+    </select>
 </mapper>
