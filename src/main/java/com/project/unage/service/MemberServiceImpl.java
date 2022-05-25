@@ -3,9 +3,11 @@ package com.project.unage.service;
 import com.project.unage.model.Member;
 import com.project.unage.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -41,7 +43,14 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public String findPw(Member member) {
-        return null;
+        return memberRepository.findPw(member);
+    }
+
+    @Override
+    public void updatePw(Member receiver) {
+        log.info("MemberServiceImpl updatePw!!!!!!");
+        receiver.setPwd(passwordEncoder.encode(receiver.getPwd()));
+        memberRepository.updatePw(receiver);
     }
 
 

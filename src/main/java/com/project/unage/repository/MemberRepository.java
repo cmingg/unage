@@ -4,8 +4,6 @@ import com.project.unage.model.Member;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Mapper
 @Repository
 public interface MemberRepository {
@@ -20,6 +18,9 @@ public interface MemberRepository {
 
     public boolean login(Member member);
 
+    public String findPw(Member member);
+
+    public void updatePw(Member receiver);
 }
 
 

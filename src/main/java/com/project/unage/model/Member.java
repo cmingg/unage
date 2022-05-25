@@ -3,10 +3,8 @@ package com.project.unage.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor

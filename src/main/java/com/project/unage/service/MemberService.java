@@ -15,5 +15,7 @@ public interface MemberService {
     public boolean login(Member member);
 
     public String findPw(Member member);
+
+    public void updatePw(Member receiver);
 }
 

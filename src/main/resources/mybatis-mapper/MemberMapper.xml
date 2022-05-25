@@ -44,9 +44,15 @@
     </select>
 
     <select id="findPw" parameterType="Member" resultType="String">
+        SELECT USERID
+        FROM MEMBER
+        WHERE USERID = #{userId}
+          AND EMAIL = #{email}
+    </select>
+
+    <select id="updatePw" parameterType="Member">
         UPDATE MEMBER
         SET PASSWORD = #{pwd}
-        WHERE EMAIL = #{email}
-          AND USERID = #{userId}
+        WHERE USERID = #{userId}
     </select>
 </mapper>
