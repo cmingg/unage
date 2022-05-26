@@ -48,7 +48,6 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public void updatePw(Member receiver) {
-        log.info("MemberServiceImpl updatePw!!!!!!");
         receiver.setPwd(passwordEncoder.encode(receiver.getPwd()));
         memberRepository.updatePw(receiver);
     }

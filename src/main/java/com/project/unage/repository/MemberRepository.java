@@ -1,10 +1,8 @@
 package com.project.unage.repository;
 
 import com.project.unage.model.Member;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Mapper
 @Repository
 public interface MemberRepository {
 

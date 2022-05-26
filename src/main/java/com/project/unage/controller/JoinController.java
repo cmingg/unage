@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
-@Controller //view 반환
+@Controller
 @RequestMapping("/member")
 public class JoinController {
 

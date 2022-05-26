@@ -2,15 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <header th:fragment="header">
-    <div class="wrapper">
-        <div class="title"><a th:href="@{/}">UNAGE</a></div>
-        <ul class="lists">
-            <li><a href="">SHOP</a></li>
-            <li><a href="">ABOUT</a></li>
-            <li><a href="">QnA</a></li>
-        </ul>
-        <div class="log"><a th:href="@{/member/login}">LOGIN</a></div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" th:href="@{/}">UNAGE</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">QnA</a>
+                    </li>
+                </ul>
+                <input class="btn btn-outline-info my-2 my-sm-0" type="button" value="Login"
+                       th:onclick="|location.href='@{/member/login}'|">
+            </div>
+        </nav>
     </div>
 </header>
-
 </html>
