@@ -5,20 +5,20 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MemberRepository {
+    // 인터페이스내에 존재하는 메소드는 임의적으로 'public abstract'나 'public'으로 선언된다
+    void addMember(Member member);
 
-    public void addMember(Member member);
+    boolean idCheck(String id);
 
-    public boolean idCheck(String id);
+    boolean emailCheck(String email);
 
-    public boolean emailCheck(String email);
+    String findId(Member member);
 
-    public String findId(Member member);
+    boolean login(Member member);
 
-    public boolean login(Member member);
+    String findPw(Member member);
 
-    public String findPw(Member member);
-
-    public void updatePw(Member receiver);
+    void updatePw(Member receiver);
 }
 
 

@@ -38,6 +38,9 @@
     border-radius: 15px;
     margin-top: 0;
 }
+.btn-circle {
+    background-color: #cccccc;
+}
 
 .check-form {
     text-align: center;
