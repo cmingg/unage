@@ -21,7 +21,9 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: lightcoral;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f8f9fa;
 }
 
 .slick-prev {

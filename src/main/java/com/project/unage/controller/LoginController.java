@@ -43,10 +43,6 @@ public class LoginController {
         return "/";
     }
 
-    @GetMapping("/findId")
-        public String findIdForm() {
-        return "/member/findId";
-    }
 
     @ResponseBody
     @PostMapping("/findId")
@@ -54,11 +50,6 @@ public class LoginController {
         log.info("받은 userName = {}", member.getUserName());
         log.info("받은 email = {}", member.getEmail());
         return memberService.findId(member);
-    }
-
-    @GetMapping("/findPw")
-    public String findPwForm() {
-        return "/member/findPassword";
     }
 
     @ResponseBody
