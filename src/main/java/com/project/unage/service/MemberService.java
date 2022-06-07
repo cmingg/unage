@@ -3,19 +3,20 @@ package com.project.unage.service;
 import com.project.unage.model.Member;
 
 public interface MemberService {
+    //인터페이스에 존재하는 메서드는 "public abstract" 공개, 추상메서드 <- 오버라이딩해서 사용한다
 
-    public void addMember(Member member);
+    void addMember(Member member);
 
-    public boolean idCheck(String id);
+    boolean idCheck(String id);
 
-    public boolean emailCheck(String email);
+    boolean emailCheck(String email);
 
-    public String findId(Member member);
+    String findId(Member member);
 
-    public boolean login(Member member);
+    boolean login(Member member);
 
-    public String findPw(Member member);
+    String findPw(Member member);
 
-    public void updatePw(Member receiver);
+    void updatePw(Member receiver);
 }
 

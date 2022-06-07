@@ -22,7 +22,7 @@ public class JoinController {
 
     @PostMapping("/join")
     public String addMember(Member member) {
-        log.info("회원가입 성공!");
+        log.info("회원가입 OK");
         Service.addMember(member);
         return "redirect:/member/login";
     }

@@ -1,0 +1,53 @@
+.titleArea {
+    text-align: center;
+    padding: 30px 0;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.layout-center {
+    width: 51%;
+    max-width: 1300px;
+    padding: 0;
+    font-size: 12px;
+    margin: 0 auto;
+    zoom: 1;
+}
+
+ul.findInfo {
+    width: auto;
+    text-align: left;
+    margin-bottom: 10px;
+    float: right;
+    margin-top: -3px;
+}
+
+ul.findInfo li {
+    display: inline-block;
+    zoom: 1;
+    margin: 0 0px 0 5px;
+}
+
+ul.findInfo li a {
+    font-size: 11px;
+    color: #000;
+    text-decoration: underline;
+}
+.buttons {
+    margin: 60px 0 0;
+}
+
+.button2 {
+    padding: 7px 60px;
+    border-radius: 12px;
+    background: #C1C1C1;
+    color: #FFF;
+    letter-spacing: 1px;
+    border: 0;
+    cursor: pointer;
+
+}
